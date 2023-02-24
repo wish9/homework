@@ -32,7 +32,7 @@ public class Coffee {
     private String coffeeCode;
 
     @OneToMany(mappedBy = "coffee")
-    private List<OrderCoffee> orderCoffees= new ArrayList<>();
+    private List<OrderCoffee> orderCoffees;
 
 
 

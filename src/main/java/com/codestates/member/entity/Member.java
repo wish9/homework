@@ -43,6 +43,7 @@ public class Member {
     private List<Order> orders = new ArrayList<>();
 
     @OneToOne
+    @JoinColumn(name = "STAMP_ID")
     private Stamp stamp;
 
     public Member(String email) {
