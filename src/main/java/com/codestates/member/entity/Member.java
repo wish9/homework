@@ -42,6 +42,9 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
+    @OneToOne
+    private Stamp stamp;
+
     public Member(String email) {
         this.email = email;
     }
