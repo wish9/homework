@@ -28,6 +28,11 @@ public class Coffee {
     @Column(length = 3, nullable = false, unique = true)
     private String coffeeCode;
 
+    @OneToMany(mappedBy = "coffee")
+    private List<OrderCoffee> orderCoffees= new ArrayList<>();
+
+
+
     // 커피 상태 추가
     @Enumerated(value = EnumType.STRING)
     @Column(length = 20, nullable = false)
