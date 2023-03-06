@@ -10,11 +10,14 @@ import com.codestates.order.mapper.OrderMapper;
 import com.codestates.order.service.OrderService;
 import com.codestates.utils.UriCreator;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.annotation.HttpConstraint;
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 import java.net.URI;
@@ -61,7 +64,7 @@ public class OrderController {
 
         // TODO JPA 기능에 맞춰서 회원이 주문한 커피 정보를 ResponseEntity에 포함 시키세요.
 
-        return new ResponseEntity<>(null);
+        return new ResponseEntity<>(mapper.orderToOrderResponseDto(order),HttpStatus.OK); // new SingleResponseDto<>(mapper.orderToOrderResponseDto(order))
     }
 
     @GetMapping
@@ -72,7 +75,8 @@ public class OrderController {
 
         // TODO JPA 기능에 맞춰서 회원이 주문한 커피 정보 목록을 ResponseEntity에 포함 시키세요.
 
-        return new ResponseEntity<>(null);
+        return new ResponseEntity<>(
+                new MultiResponseDto<>(mapper.ordersToOrderResponseDtos(orders), pageOrders),HttpStatus.OK);
     }
 
     @DeleteMapping("/{order-id}")

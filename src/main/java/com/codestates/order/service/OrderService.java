@@ -1,5 +1,6 @@
 package com.codestates.order.service;
 
+import com.codestates.coffee.service.CoffeeService;
 import com.codestates.exception.BusinessLogicException;
 import com.codestates.exception.ExceptionCode;
 import com.codestates.member.service.MemberService;
@@ -17,6 +18,8 @@ import java.util.Optional;
 public class OrderService {
     private final MemberService memberService;
     private final OrderRepository orderRepository;
+    private final CoffeeService coffeeService;
+
 
     public OrderService(MemberService memberService,
                         OrderRepository orderRepository) {
