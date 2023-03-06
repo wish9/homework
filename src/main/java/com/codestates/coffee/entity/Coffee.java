@@ -32,9 +32,7 @@ public class Coffee {
     private String coffeeCode;
 
     @OneToMany(mappedBy = "coffee")
-    private List<OrderCoffee> orderCoffees;
-
-
+    private List<OrderCoffee> orderCoffees = new ArrayList<>();
 
     // 커피 상태 추가
     @Enumerated(value = EnumType.STRING)

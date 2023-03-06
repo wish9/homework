@@ -32,7 +32,7 @@ public class Order {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy ="order")
+    @OneToMany(mappedBy ="order", cascade = CascadeType.ALL)
     private List<OrderCoffee> orderCoffees = new ArrayList<>();
 
     public void addMember(Member member) {

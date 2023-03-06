@@ -14,4 +14,5 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Long> { // 수�
 //    @Query(value = "SELECT * FROM COFFEE WHERE coffee_Id = :coffeeId", nativeQuery =true)
     @Query(value = "SELECT c FROM Coffee c WHERE c.coffeeId = :coffeeId")
     Optional<Coffee> findByCoffee(long coffeeId);
+//    Optional<Coffee> findByCoffeeId(long coffeeId); // 위 메서드랑 같은거
 }

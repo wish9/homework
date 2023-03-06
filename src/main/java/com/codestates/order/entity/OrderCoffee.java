@@ -17,12 +17,12 @@ public class OrderCoffee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int order_coffeeId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
     @ManyToOne
     @JoinColumn(name = "COFFEE_ID")
     private Coffee coffee;
     @Column(nullable = false)
-    private int quantityId;
+    private int quantity;
 }
